@@ -16,7 +16,7 @@ userRouter.post("/signup", async (req, res) => {
       console.log(form);
 
       if (!form.email || !form.password) {
-         throw new Error("Por favor, envie um email e uma senha");
+         throw new Error("Please register with an email and password.");
       }
 
       if (
@@ -25,7 +25,7 @@ userRouter.post("/signup", async (req, res) => {
          ) === false
       ) {
          throw new Error(
-            "A senha não preenche os requisitos básicos. 8 caracteres. Maiuscula e minuscula. Numeros e caracteres especiais."
+            "The password doesn't meet the basic requirements. 8 characters. Uppercase and lowercase. Numbers and special characters."
          );
       }
 
@@ -73,7 +73,7 @@ userRouter.post("/login", async (req, res) => {
       } else {
          //senhas diferentes, não pode fazer login
          throw new Error(
-            "Email ou senha não são válidos. Por favor tenta novamente."
+            "Invalid email or password. Please try again."
          );
       }
    } catch (err) {

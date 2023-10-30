@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const phoneRegex = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
+const phoneRegex = /^(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
 const userSchema = new Schema(
   {
     name: { type: String, required: true, trim: true },
@@ -10,7 +10,7 @@ const userSchema = new Schema(
       required: true,
       trim: true,
     },
-    cpf: {
+    phone: {
       type: String,
       required: true,
       trim: true,
@@ -45,7 +45,7 @@ const userSchema = new Schema(
         ref: "Inquirie",
         status: {
           type: String,
-          enum: ["Disponivel", "Indisponivel"],
+          enum: ["Available", "Unavailable"],
           required: true,
         },
       },
@@ -56,7 +56,7 @@ const userSchema = new Schema(
         ref: "Project",
         status: {
           type: String,
-          enum: ["Disponivel", "Indisponivel"],
+          enum: ["Available", "Unavailable"],
           required: true,
         },
       },

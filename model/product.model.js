@@ -19,6 +19,7 @@ const productSchema = new Schema({
     thickness: { type: String, required:true },
     dimensions: { type: String, required:true },
     photo: { type: String, default: "https://www.tremron.com/images/products_page/ultra-combo.jpg" },
+    status: { type: Boolean, default: true}
 },
 { timestamps: true }
 );
